@@ -15,6 +15,7 @@ Add the following dependency to your `pom.xml`:
     <artifactId>sortfilter</artifactId>
     <version>1.0.4</version>
 </dependency>
+```
 
 ### 2.How to Use
 
@@ -40,4 +41,4 @@ public Page<LogDto> search(SearchRequest request) {
     // Map entities to DTOs using a mapper (e.g., LogMapper)
     return entities.map(LogMapper.INSTANCE::toDto);
 }
-
+```
