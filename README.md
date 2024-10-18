@@ -3,8 +3,20 @@
 This library provides common sorting, filtering, and pagination utilities for **Spring Boot** applications, helping you simplify querying with **JPA Specifications**.
 
 ---
+## Setup Instructions
 
-## How to Use
+### 1.Add the Dependency
+
+Add the following dependency to your `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>vn.cnj.shared</groupId>
+    <artifactId>sortfilter</artifactId>
+    <version>1.0.4</version>
+</dependency>
+
+### 2.How to Use
 
 Here is an example of how to use the library to implement searching, filtering, sorting, and pagination in a Spring Boot application:
 
