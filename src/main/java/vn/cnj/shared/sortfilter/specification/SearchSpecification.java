@@ -1,4 +1,4 @@
-package vn.cnj.sort.filter.specification;
+package vn.cnj.shared.sortfilter.specification;
 
 import jakarta.persistence.criteria.*;
 import lombok.AllArgsConstructor;
@@ -6,9 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
-import vn.cnj.sort.filter.request.FilterRequest;
-import vn.cnj.sort.filter.request.SearchRequest;
-import vn.cnj.sort.filter.request.SortRequest;
+import vn.cnj.shared.sortfilter.request.FilterRequest;
+import vn.cnj.shared.sortfilter.request.SearchRequest;
+import vn.cnj.shared.sortfilter.request.SortRequest;
 
 import java.util.ArrayList;
 import java.util.List;

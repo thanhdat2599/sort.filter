@@ -1,7 +1,7 @@
-package vn.cnj.sort.filter.enums.sort.filter;
+package vn.cnj.shared.sortfilter.enums.sort.filter;
 
 import jakarta.persistence.criteria.*;
-import vn.cnj.sort.filter.request.SortRequest;
+import vn.cnj.shared.sortfilter.request.SortRequest;
 
 public enum SortDirection {
     ASC {

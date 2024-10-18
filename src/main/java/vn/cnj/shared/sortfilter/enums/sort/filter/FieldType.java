@@ -1,4 +1,4 @@
-package vn.cnj.sort.filter.enums.sort.filter;
+package vn.cnj.shared.sortfilter.enums.sort.filter;
 
 import lombok.extern.slf4j.Slf4j;
 

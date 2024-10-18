@@ -1,10 +1,10 @@
-package vn.cnj.sort.filter.request;
+package vn.cnj.shared.sortfilter.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import vn.cnj.sort.filter.enums.sort.filter.SortDirection;
+import vn.cnj.shared.sortfilter.enums.sort.filter.SortDirection;
 
 @Data
 @Builder

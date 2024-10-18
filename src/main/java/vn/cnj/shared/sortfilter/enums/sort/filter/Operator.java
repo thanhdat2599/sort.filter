@@ -1,8 +1,8 @@
-package vn.cnj.sort.filter.enums.sort.filter;
+package vn.cnj.shared.sortfilter.enums.sort.filter;
 
 import jakarta.persistence.criteria.*;
 import lombok.extern.slf4j.Slf4j;
-import vn.cnj.sort.filter.request.FilterRequest;
+import vn.cnj.shared.sortfilter.request.FilterRequest;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -30,9 +30,6 @@ public enum Operator {
     GTE_OR {
         public <T> Predicate build(Root<T> root, CriteriaBuilder cb, FilterRequest request, Predicate predicate) {
             Object value = request.getFieldType().parse(request.getValue().toString());
-//            if (!CommonUtils.isNumber(value)) {
-//                throw new RuntimeException("value: " + value + " should be number");
-//            }
             String[] relations = request.getKey().split("\\.");
             Path<?> path;
             if (relations.length <= 1) {

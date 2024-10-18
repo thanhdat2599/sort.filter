@@ -1,4 +1,4 @@
-package vn.cnj.sort.filter.request;
+package vn.cnj.shared.sortfilter.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
