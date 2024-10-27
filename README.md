@@ -6,14 +6,23 @@ This library provides common sorting, filtering, and pagination utilities for **
 ## Setup Instructions
 
 ### 1.Add the Dependency
+Step 1: Add the JitPack repository to your build file
+```xml
 
-Add the following dependency to your `pom.xml`:
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+Step2: Add the following dependency to your `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>vn.cnj.shared</groupId>
-    <artifactId>sortfilter</artifactId>
-    <version>1.0.4</version>
+    <groupId>com.github.thanhdat2599</groupId>
+    <artifactId>sort.filter</artifactId>
+    <version>1.0.6</version>
 </dependency>
 ```
 
