@@ -10,7 +10,7 @@
     </parent>
     <groupId>vn.cnj.shared</groupId>
     <artifactId>sortfilter</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <name>sort.filter</name>
     <description>common Sort, Filter, Search</description>
     <developers>

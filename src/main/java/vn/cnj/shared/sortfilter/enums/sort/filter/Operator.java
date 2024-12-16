@@ -23,7 +23,7 @@ public enum Operator {
         public <T> Predicate build(Root<T> root, CriteriaBuilder cb, FilterRequest request, Predicate predicate) {
             Object value = request.getFieldType().parse(request.getValue().toString());
             Expression<?> key = getExpressionWithJoining(root, request);
-            return cb.or(cb.equal(key, value), predicate);
+            return cb.or(predicate, cb.equal(key, value));
         }
     },
 
@@ -35,22 +35,22 @@ public enum Operator {
             Path<?> path = getPath(root, request, relations);
 
             if (path.getJavaType().equals(Integer.class)) {
-                return cb.or(cb.greaterThanOrEqualTo(path.as(Integer.class), (Integer) value), predicate);
+                return cb.or(predicate, cb.greaterThanOrEqualTo(path.as(Integer.class), (Integer) value));
             }
 
             if (path.getJavaType().equals(Long.class)) {
-                return cb.or(cb.greaterThanOrEqualTo(path.as(Long.class), (Long) value), predicate);
+                return cb.or(predicate, cb.greaterThanOrEqualTo(path.as(Long.class), (Long) value));
             }
 
             if (path.getJavaType().equals(Float.class)) {
-                return cb.or(cb.greaterThanOrEqualTo(path.as(Float.class), (Float) value), predicate);
+                return cb.or(predicate, cb.greaterThanOrEqualTo(path.as(Float.class), (Float) value));
             }
 
             if (path.getJavaType().equals(Double.class)) {
-                return cb.or(cb.greaterThanOrEqualTo(path.as(Double.class), (Double) value), predicate);
+                return cb.or(predicate, cb.greaterThanOrEqualTo(path.as(Double.class), (Double) value));
             }
             if (path.getJavaType().equals(BigDecimal.class)) {
-                return cb.or(cb.greaterThanOrEqualTo(path.as(BigDecimal.class), (BigDecimal) value), predicate);
+                return cb.or(predicate, cb.greaterThanOrEqualTo(path.as(BigDecimal.class), (BigDecimal) value));
             }
             throw new RuntimeException("Unsupported number type for GT operation");
         }
@@ -63,22 +63,22 @@ public enum Operator {
             Path<?> path = getPath(root, request, relations);
 
             if (path.getJavaType().equals(Integer.class)) {
-                return cb.or(cb.lessThanOrEqualTo(path.as(Integer.class), (Integer) value), predicate);
+                return cb.or(predicate, cb.lessThanOrEqualTo(path.as(Integer.class), (Integer) value));
             }
 
             if (path.getJavaType().equals(Long.class)) {
-                return cb.or(cb.lessThanOrEqualTo(path.as(Long.class), (Long) value), predicate);
+                return cb.or(predicate, cb.lessThanOrEqualTo(path.as(Long.class), (Long) value));
             }
 
             if (path.getJavaType().equals(Float.class)) {
-                return cb.or(cb.lessThanOrEqualTo(path.as(Float.class), (Float) value), predicate);
+                return cb.or(predicate, cb.lessThanOrEqualTo(path.as(Float.class), (Float) value));
             }
 
             if (path.getJavaType().equals(Double.class)) {
-                return cb.or(cb.lessThanOrEqualTo(path.as(Double.class), (Double) value), predicate);
+                return cb.or(predicate, cb.lessThanOrEqualTo(path.as(Double.class), (Double) value));
             }
             if (path.getJavaType().equals(BigDecimal.class)) {
-                return cb.or(cb.lessThanOrEqualTo(path.as(BigDecimal.class), (BigDecimal) value), predicate);
+                return cb.or(predicate, cb.lessThanOrEqualTo(path.as(BigDecimal.class), (BigDecimal) value));
             }
             throw new RuntimeException("Unsupported number type for GT operation");
         }
@@ -119,22 +119,22 @@ public enum Operator {
             Path<?> path = getPath(root, request, relations);
 
             if (path.getJavaType().equals(Integer.class)) {
-                return cb.or(cb.greaterThan(path.as(Integer.class), (Integer) value), predicate);
+                return cb.or(predicate, cb.greaterThan(path.as(Integer.class), (Integer) value));
             }
 
             if (path.getJavaType().equals(Long.class)) {
-                return cb.or(cb.greaterThan(path.as(Long.class), (Long) value), predicate);
+                return cb.or(predicate, cb.greaterThan(path.as(Long.class), (Long) value));
             }
 
             if (path.getJavaType().equals(Float.class)) {
-                return cb.or(cb.greaterThan(path.as(Float.class), (Float) value), predicate);
+                return cb.or(predicate, cb.greaterThan(path.as(Float.class), (Float) value));
             }
 
             if (path.getJavaType().equals(Double.class)) {
-                return cb.or(cb.greaterThan(path.as(Double.class), (Double) value), predicate);
+                return cb.or(predicate, cb.greaterThan(path.as(Double.class), (Double) value));
             }
             if (path.getJavaType().equals(BigDecimal.class)) {
-                return cb.or(cb.greaterThan(path.as(BigDecimal.class), (BigDecimal) value), predicate);
+                return cb.or(predicate, cb.greaterThan(path.as(BigDecimal.class), (BigDecimal) value));
             }
             throw new RuntimeException("Unsupported number type for GT operation");
         }
@@ -176,22 +176,22 @@ public enum Operator {
             Path<?> path = getPath(root, request, relations);
 
             if (path.getJavaType().equals(Integer.class)) {
-                return cb.or(cb.lessThan(path.as(Integer.class), (Integer) value), predicate);
+                return cb.or(predicate, cb.lessThan(path.as(Integer.class), (Integer) value));
             }
 
             if (path.getJavaType().equals(Long.class)) {
-                return cb.or(cb.lessThan(path.as(Long.class), (Long) value), predicate);
+                return cb.or(predicate, cb.lessThan(path.as(Long.class), (Long) value));
             }
 
             if (path.getJavaType().equals(Float.class)) {
-                return cb.or(cb.lessThan(path.as(Float.class), (Float) value), predicate);
+                return cb.or(predicate, cb.lessThan(path.as(Float.class), (Float) value));
             }
 
             if (path.getJavaType().equals(Double.class)) {
-                return cb.or(cb.lessThan(path.as(Double.class), (Double) value), predicate);
+                return cb.or(predicate, cb.lessThan(path.as(Double.class), (Double) value));
             }
             if (path.getJavaType().equals(BigDecimal.class)) {
-                return cb.or(cb.lessThan(path.as(BigDecimal.class), (BigDecimal) value), predicate);
+                return cb.or(predicate, cb.lessThan(path.as(BigDecimal.class), (BigDecimal) value));
             }
             throw new RuntimeException("Unsupported number type for GT operation");
         }
