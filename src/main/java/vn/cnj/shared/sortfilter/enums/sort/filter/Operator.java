@@ -111,6 +111,33 @@ public enum Operator {
             throw new RuntimeException("Unsupported number type for GT operation");
         }
     },
+    GTE {
+        public <T> Predicate build(Root<T> root, CriteriaBuilder cb, FilterRequest request, Predicate predicate) {
+            Object value = request.getFieldType().parse(request.getValue().toString());
+            String[] relations = request.getKey().split("\\.");
+            Path<?> path = getPath(root, request, relations);
+
+            if (path.getJavaType().equals(Integer.class)) {
+                return cb.and(cb.greaterThanOrEqualTo(path.as(Integer.class), (Integer) value), predicate);
+            }
+
+            if (path.getJavaType().equals(Long.class)) {
+                return cb.and(cb.greaterThanOrEqualTo(path.as(Long.class), (Long) value), predicate);
+            }
+
+            if (path.getJavaType().equals(Float.class)) {
+                return cb.and(cb.greaterThanOrEqualTo(path.as(Float.class), (Float) value), predicate);
+            }
+
+            if (path.getJavaType().equals(Double.class)) {
+                return cb.and(cb.greaterThanOrEqualTo(path.as(Double.class), (Double) value), predicate);
+            }
+            if (path.getJavaType().equals(BigDecimal.class)) {
+                return cb.and(cb.greaterThanOrEqualTo(path.as(BigDecimal.class), (BigDecimal) value), predicate);
+            }
+            throw new RuntimeException("Unsupported number type for GT operation");
+        }
+    },
 
     GT_OR {
         public <T> Predicate build(Root<T> root, CriteriaBuilder cb, FilterRequest request, Predicate predicate) {
@@ -169,6 +196,34 @@ public enum Operator {
         }
     },
 
+    LTE {
+        public <T> Predicate build(Root<T> root, CriteriaBuilder cb, FilterRequest request, Predicate predicate) {
+            Object value = request.getFieldType().parse(request.getValue().toString());
+            String[] relations = request.getKey().split("\\.");
+            Path<?> path = getPath(root, request, relations);
+
+            if (path.getJavaType().equals(Integer.class)) {
+                return cb.and(cb.lessThanOrEqualTo(path.as(Integer.class), (Integer) value), predicate);
+            }
+
+            if (path.getJavaType().equals(Long.class)) {
+                return cb.and(cb.lessThanOrEqualTo(path.as(Long.class), (Long) value), predicate);
+            }
+
+            if (path.getJavaType().equals(Float.class)) {
+                return cb.and(cb.lessThanOrEqualTo(path.as(Float.class), (Float) value), predicate);
+            }
+
+            if (path.getJavaType().equals(Double.class)) {
+                return cb.and(cb.lessThanOrEqualTo(path.as(Double.class), (Double) value), predicate);
+            }
+            if (path.getJavaType().equals(BigDecimal.class)) {
+                return cb.and(cb.lessThanOrEqualTo(path.as(BigDecimal.class), (BigDecimal) value), predicate);
+            }
+            throw new RuntimeException("Unsupported number type for GT operation");
+        }
+    },
+
     LT_OR {
         public <T> Predicate build(Root<T> root, CriteriaBuilder cb, FilterRequest request, Predicate predicate) {
             Object value = request.getFieldType().parse(request.getValue().toString());
@@ -196,6 +251,7 @@ public enum Operator {
             throw new RuntimeException("Unsupported number type for GT operation");
         }
     },
+
 
 
     NOT_EQUAL {
