@@ -141,6 +141,29 @@ public enum Operator {
             log.warn("Cannot use between for {} field type", request.getFieldType());
             return predicate;
         }
+    },
+
+    BETWEEN_OR {
+        public <T> Predicate build(Root<T> root, CriteriaBuilder cb, FilterRequest request, Predicate predicate) {
+            Object value = request.getFieldType().parse(request.getValue().toString());
+            Object valueTo = request.getFieldType().parse(request.getValueTo().toString());
+            if (request.getFieldType() == FieldType.DATE) {
+                LocalDateTime startDate = (LocalDateTime) value;
+                LocalDateTime endDate = (LocalDateTime) valueTo;
+                Expression<LocalDateTime> key = root.get(request.getKey());
+                return cb.or(predicate, cb.and(cb.greaterThanOrEqualTo(key, startDate), cb.lessThanOrEqualTo(key, endDate)));
+            }
+
+            if (request.getFieldType() != FieldType.CHAR && request.getFieldType() != FieldType.BOOLEAN) {
+                Number start = (Number) value;
+                Number end = (Number) valueTo;
+                Expression<Number> key = root.get(request.getKey());
+                return cb.or(predicate, cb.and(cb.ge(key, start), cb.le(key, end)));
+            }
+
+            log.info("Can not use between for {} field type.", request.getFieldType());
+            return predicate;
+        }
     };
 
     private static final Map<String, Object> valueCache = new ConcurrentHashMap<>();
